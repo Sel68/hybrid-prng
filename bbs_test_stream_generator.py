@@ -23,6 +23,7 @@ def hybrid_generator(x, N, s, taps, k=8, n=10**6):
         x = powmod(x, exp, N)
         out = ((s >> (k - 1)) & 1) ^ (x & 1)
         output.append(int(out))
+        
     return output
 
 def bbs_generator(x, N, n=10**6):
