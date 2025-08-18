@@ -3,9 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def parse_nist_result(file_path):
-    """
-    Parse a NIST STS finalAnalysisReport.txt file.
-    """
+    
     results = []
     current_test = None
     with open(file_path, 'r') as f:

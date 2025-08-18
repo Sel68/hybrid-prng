@@ -1,7 +1,6 @@
-from gmpy2 import mpz, next_prime, is_prime, random_state, mpz_urandomb, powmod
+from gmpy2 import next_prime, is_prime, random_state, mpz_urandomb, powmod
 from time import time
 from multiprocessing import Pool, cpu_count
-from functools import partial
 
 def gen_safe_prime(bits=256):
     while True:
@@ -71,14 +70,12 @@ def write_bbs_test_stream(file):
     counter = 500
     start_time = time()
 
-    # Use all available CPU cores
+    # multiproc
     with Pool(processes=cpu_count()) as pool:
         results = pool.map(worker, [(i, N) for i in range(counter)])
 
-    # Sort results by stream index to keep order
     results.sort()
-
-    # Write all streams to a file in order
+    #need to write in order
     with open(file, "wb") as f:
         for i, data in results:
             f.write(data)

@@ -1,5 +1,5 @@
 
-from gmpy2 import mpz, next_prime, is_prime, bit_length, random_state, mpz_urandomb, powmod
+from gmpy2 import next_prime, is_prime, random_state, mpz_urandomb, powmod
 from time import time
 
 rand = random_state(int(time()))
@@ -66,14 +66,6 @@ s = 121 #8 bit register
 x = 42
 taps = [3, 4, 6]
 k, n = 8, 1000
-
-# start_time = time()
-# keystream = hybrid(x, N, s, taps, k, 10**6)
-# print(time() - start_time)
-
-# start_time = time()
-# keystream = bbs(x, N, 10**6)
-# print(time()-start_time)
 
 write_to_binfile(hybrid(x, N, s, taps, k, 10**6+8), "hybrid.bin")
 write_to_binfile(bbs(x, N, 10**6+8), "bbs.bin")
